@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Apiservice } from "../Service/apiservice";
 import { Categories } from "../Models/categories";
+import { Apiservice } from "../Service/apiservice";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
+export class HomeComponent implements OnInit {
 
-export class MenuComponent implements OnInit {
   data: Categories;
   constructor(
     public apiService: Apiservice
@@ -21,4 +21,5 @@ export class MenuComponent implements OnInit {
       },
       error => console.log(error));
   }
+
 }
