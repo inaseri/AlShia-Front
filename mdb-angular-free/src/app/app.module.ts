@@ -9,17 +9,20 @@ import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
+import { SelectCategoryComponent } from './select-category/select-category.component';
 
 const routes: Routes = [
-
+  { path: '', component: HomeComponent},
+  { path: 'selected_category', component: SelectCategoryComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    MenuComponent
+    HomeComponent,
+    SelectCategoryComponent
   ],
   imports: [
     BrowserModule,

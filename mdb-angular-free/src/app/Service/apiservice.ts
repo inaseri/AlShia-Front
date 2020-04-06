@@ -49,4 +49,13 @@ export class Apiservice {
       catchError(this.handleError)
     );
   }
+
+  children_categories(term_id): Observable<Categories> {
+    return this.http
+      .get<Categories>(this.base_path + 'categories/' + term_id + '/', this.httpOptions)
+      .pipe(
+        retry(0),
+        catchError(this.handleError)
+      );
+  }
 }
