@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   gotToCategory(term_id) {
-    this.apiService.term_id = term_id.term_id;
+    this.apiService.term_id = term_id;
     this.router.navigate(['selected_category']);
   }
 

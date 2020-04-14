@@ -1,6 +1,19 @@
-
-<mdb-breadcrumb customClass="black-text blue-grey lighten-4" dir="rtl">
-  <mdb-breadcrumb-item *ngFor="let elements of data" (click)="gotToCategory(elements)">
-   {{elements.description}} &nbsp;
-  </mdb-breadcrumb-item>
-</mdb-breadcrumb>
+<mdb-navbar SideClass="navbar navbar-dark indigo" dir="rtl">
+  <ul class="navbar-nav ml-auto nav-flex-icons text-white" style="display: contents;">
+    <li class="nav-item" >
+      <a >التصنیفات</a>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <button class="button-effect" (click)="gotToCategory(1162)">النبی و اهل بیة</button>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <button class="button-effect" (click)="gotToCategory(882)">المذهب شیعي</button>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <button class="button-effect" (click)="gotToCategory(727)">الأسرة الشیعة</button>
+    </li>
+  </ul>
+</mdb-navbar>

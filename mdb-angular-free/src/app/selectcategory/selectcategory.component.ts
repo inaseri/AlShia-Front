@@ -20,6 +20,7 @@ export class SelectcategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.apiService.term_id);
     this.get_child_categories();
     this.get_posts()
   }
