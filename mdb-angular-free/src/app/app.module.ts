@@ -10,11 +10,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
-import { SelectCategoryComponent } from './select-category/select-category.component';
+import { SelectcategoryComponent } from './selectcategory/selectcategory.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'selected_category', component: SelectCategoryComponent}
+  { path: 'selected_category', component: SelectcategoryComponent }
 ];
 
 @NgModule({
@@ -22,7 +23,7 @@ const routes: Routes = [
     AppComponent,
     MainMenuComponent,
     HomeComponent,
-    SelectCategoryComponent
+    SelectcategoryComponent,
   ],
   imports: [
     BrowserModule,

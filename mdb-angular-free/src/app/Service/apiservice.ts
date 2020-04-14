@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpHeaders, HttpErrorResponse, HttpClient} from "@angular/common/http";
+import { HttpHeaders, HttpErrorResponse, HttpClient} from "@angular/common/http";
 import { Observable, throwError} from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 // Models Imports
 import { Categories } from "../Models/categories";
+import { Posts } from "../Models/posts";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { Categories } from "../Models/categories";
 export class Apiservice {
 
   base_path = 'https://api.alshia.inaseri.ir/api/';
+  term_id: number;
 
   constructor(private http: HttpClient) { }
 
@@ -52,7 +54,16 @@ export class Apiservice {
 
   children_categories(term_id): Observable<Categories> {
     return this.http
-      .get<Categories>(this.base_path + 'categories/' + term_id + '/', this.httpOptions)
+      .get<Categories>(this.base_path + 'child_categories/' + term_id + '/', this.httpOptions)
+      .pipe(
+        retry(0),
+        catchError(this.handleError)
+      );
+  }
+
+  get_post_in_child_categories(term_id): Observable<Posts> {
+      return this.http
+      .get<Posts>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)

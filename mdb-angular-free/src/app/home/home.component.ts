@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Categories } from "../Models/categories";
 import { Apiservice } from "../Service/apiservice";
 import { Router } from "@angular/router";
-import { SelectCategoryComponent } from "../select-category/select-category.component";
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   constructor(
     public apiService: Apiservice,
     public router: Router,
-    public selectedCategory: SelectCategoryComponent
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   gotToCategory(term_id) {
-    this.selectedCategory.term_id = term_id.term_id;
+    this.apiService.term_id = term_id.term_id;
     this.router.navigate(['selected_category']);
   }
 
