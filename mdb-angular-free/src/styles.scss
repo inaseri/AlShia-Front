@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Adobe-Arabic';
+  src: url('assets/Fonts/AdobeArabic-Regular.otf') format("opentype");
+}
+
+body {
+  font-family: Adobe-Arabic;
+  font-size: 16px;
+}
+
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
