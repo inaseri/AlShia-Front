@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Categories } from "../Models/categories";
 import { Posts } from "../Models/posts";
 import { Apiservice } from "../Service/apiservice";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -16,13 +17,13 @@ export class SelectcategoryComponent implements OnInit {
   post_data: Posts;
 
   constructor(
-    public apiService: Apiservice
+    public apiService: Apiservice,
+    public router: Router,
   ) {}
 
   ngOnInit(): void {
     console.log(this.apiService.term_id);
     this.get_child_categories();
-    this.get_posts()
   }
 
   get_child_categories() {
@@ -36,16 +37,9 @@ export class SelectcategoryComponent implements OnInit {
     );
   }
 
-  get_posts() {
-    this.apiService.get_post_in_child_categories(this.apiService.term_id).subscribe(
-      response => {
-        // this.post_data = response;
-        // console.log(response);
-      },
-      error => {
-        console.log(error)
-      }
-    );
+  gotToCategory(term_id) {
+    this.apiService.term_id = term_id;
+    this.router.navigate(['selected_category']);
   }
 
 }
