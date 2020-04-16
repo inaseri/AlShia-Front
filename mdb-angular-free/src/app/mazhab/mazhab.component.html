@@ -1,0 +1,49 @@
+<mdb-navbar SideClass="navbar navbar-dark indigo " dir="rtl">
+  <ul class="navbar-nav ml-auto nav-flex-icons text-white" style="display: contents;">
+    <li class="nav-item" >
+      <a style="color: white;"  [routerLink]="['']">التصنیفات</a>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <a class="button-effect" (click)="gotToCategory(1162)">النبی و اهل بیة</a>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <a class="button-effect" (click)="gotToCategory(882)">المذهب شیعي</a>
+    </li>
+    <li><span>&nbsp;|&nbsp;</span></li>
+    <li class="nav-item">
+      <a class="button-effect" (click)="gotToCategory(727)">الأسرة الشیعة</a>
+    </li>
+  </ul>
+</mdb-navbar>
+<div class="container" dir="rtl">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/Images/ahadis.png" class="img-fluid z-depth-1">
+    </div>
+  </div>
+  <div *ngFor="let category of categories_data" >
+    <div class="row">
+      <div class="col-8" style="text-align: right">
+        <img src="assets/Images/side-category.png" class="w-25">
+        {{ category.description }}
+      </div>
+      <div class="col-4">
+        المزید
+        <mdb-icon fas icon="angle-left"></mdb-icon>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div id="gallery">
+          <a ><img class="d-block w-35" src="assets/Images/fazael.png" alt="1 slide"></a>
+          <a ><img class="d-block w-35" src="assets/Images/sirh.png" alt="1 slide"></a>
+          <a ><img class="d-block w-35" src="assets/Images/asaleh.png" alt="1 slide"></a>
+          <a ><img class="d-block w-35" src="assets/Images/fazael.png" alt="1 slide"></a>
+          <a ><img class="d-block w-35" src="assets/Images/sirh.png" alt="1 slide"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

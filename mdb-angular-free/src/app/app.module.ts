@@ -10,12 +10,16 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
-import { SelectcategoryComponent } from './selectcategory/selectcategory.component';
+import { NabiComponent } from './nabi/nabi.component';
+import { MazhabComponent } from './mazhab/mazhab.component';
+import { AsorahComponent } from './asorah/asorah.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'selected_category', component: SelectcategoryComponent }
+  { path: 'nabi-ahleh', component: NabiComponent },
+  { path: 'mazhab-shiei', component: MazhabComponent },
+  { path: 'osrah-shie', component: AsorahComponent}
 ];
 
 @NgModule({
@@ -23,7 +27,9 @@ const routes: Routes = [
     AppComponent,
     MainMenuComponent,
     HomeComponent,
-    SelectcategoryComponent,
+    NabiComponent,
+    MazhabComponent,
+    AsorahComponent,
   ],
   imports: [
     BrowserModule,

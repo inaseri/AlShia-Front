@@ -61,9 +61,9 @@ export class Apiservice {
       );
   }
 
-  get_post_in_child_categories(term_id): Observable<Posts> {
+  get_post_in_child_categories(term_id): Observable<any> {
       return this.http
-      .get<Posts>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
+      .get<any>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)

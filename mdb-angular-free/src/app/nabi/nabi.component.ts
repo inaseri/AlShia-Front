@@ -4,16 +4,14 @@ import { Posts } from "../Models/posts";
 import { Apiservice } from "../Service/apiservice";
 import { Router } from "@angular/router";
 
-
 @Component({
-  selector: 'app-selectcategory',
-  templateUrl: './selectcategory.component.html',
-  styleUrls: ['./selectcategory.component.scss']
+  selector: 'app-nabi',
+  templateUrl: './nabi.component.html',
+  styleUrls: ['./nabi.component.scss']
 })
+export class NabiComponent implements OnInit {
 
-export class SelectcategoryComponent implements OnInit {
-
-  data: Categories;
+  categories_data: Categories;
   post_data: Posts;
 
   constructor(
@@ -29,7 +27,7 @@ export class SelectcategoryComponent implements OnInit {
   get_child_categories() {
     this.apiService.children_categories(this.apiService.term_id).subscribe(
       response => {
-        this.data = response
+        this.categories_data = response
       },
       error => {
         console.log(error)
@@ -39,7 +37,14 @@ export class SelectcategoryComponent implements OnInit {
 
   gotToCategory(term_id) {
     this.apiService.term_id = term_id;
-    this.router.navigate(['selected_category']);
+    if (term_id === 1162) {
+      this.router.navigate(['nabi-ahleh']);
+    } else if (term_id === 882) {
+      this.router.navigate(['mazhab-shiei'])
+    } else {
+      this.router.navigate(['osrah-shie'])
+    }
   }
+
 
 }

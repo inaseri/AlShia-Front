@@ -29,7 +29,13 @@ export class HomeComponent implements OnInit {
 
   gotToCategory(term_id) {
     this.apiService.term_id = term_id;
-    this.router.navigate(['selected_category']);
+    if (term_id === 1162) {
+      this.router.navigate(['nabi-ahleh']);
+    } else if (term_id === 882) {
+      this.router.navigate(['mazhab-shiei'])
+    } else {
+      this.router.navigate(['osrah-shie'])
+    }
   }
 
 }
