@@ -24,24 +24,26 @@
     </div>
   </div>
   <div *ngFor="let category of categories_data" >
-    <div class="row">
-      <div class="col-8" style="text-align: right">
-        <img src="assets/Images/side-category.png" class="w-25">
-        {{ category.description }}
+    <div *ngFor="let post of post_data">
+      <div class="row">
+        <div class="col-8" style="text-align: right">
+          <img src="assets/Images/side-category.png" class="w-25">
+          {{ category.description }}
+        </div>
+        <div class="col-4">
+          المزید
+          <mdb-icon fas icon="angle-left"></mdb-icon>
+        </div>
       </div>
-      <div class="col-4">
-        المزید
-        <mdb-icon fas icon="angle-left"></mdb-icon>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div id="gallery">
-          <a ><img class="d-block w-35" src="assets/Images/fazael.png" alt="1 slide"></a>
-          <a ><img class="d-block w-35" src="assets/Images/sirh.png" alt="1 slide"></a>
-          <a ><img class="d-block w-35" src="assets/Images/asaleh.png" alt="1 slide"></a>
-          <a ><img class="d-block w-35" src="assets/Images/fazael.png" alt="1 slide"></a>
-          <a ><img class="d-block w-35" src="assets/Images/sirh.png" alt="1 slide"></a>
+      <div class="card">
+        <div class="card-body">
+          <div id="gallery">
+            <a ><img class="d-block w-35" src="{{ post.guid }}" alt="1 slide"></a>
+            <a ><img class="d-block w-35" src="{{post.guid}}" alt="1 slide"></a>
+            <a ><img class="d-block w-35" src="{{post.guid}}" alt="1 slide"></a>
+            <a ><img class="d-block w-35" src="{{post.guid}}" alt="1 slide"></a>
+            <a ><img class="d-block w-35" src="{{post.guid}}" alt="1 slide"></a>
+          </div>
         </div>
       </div>
     </div>

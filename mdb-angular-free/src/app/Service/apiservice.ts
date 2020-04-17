@@ -13,6 +13,7 @@ import { Posts } from "../Models/posts";
 
 export class Apiservice {
 
+  /*base_path = 'http://127.0.0.1:8000/api/'*/
   base_path = 'https://api.alshia.inaseri.ir/api/';
   term_id: number;
 
@@ -61,9 +62,9 @@ export class Apiservice {
       );
   }
 
-  get_post_in_child_categories(term_id): Observable<any> {
+  get_post_in_child_categories(term_id): Observable<Posts> {
       return this.http
-      .get<any>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
+      .get<Posts>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)

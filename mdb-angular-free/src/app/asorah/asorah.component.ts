@@ -17,7 +17,9 @@ export class AsorahComponent implements OnInit {
   constructor(
     public apiService: Apiservice,
     public router: Router,
-  ) {}
+  ) {
+    this.post_data = new Posts();
+  }
 
   ngOnInit(): void {
     console.log(this.apiService.term_id);
@@ -28,7 +30,8 @@ export class AsorahComponent implements OnInit {
   get_child_categories() {
     this.apiService.children_categories(this.apiService.term_id).subscribe(
       response => {
-        this.categories_data = response
+        this.categories_data = response;
+
       },
       error => {
         console.log(error)
@@ -39,7 +42,11 @@ export class AsorahComponent implements OnInit {
   get_posts() {
     this.apiService.get_post_in_child_categories(this.apiService.term_id).subscribe(
       response => {
-        console.log('response is:', response)
+        this.post_data = response;
+
+      },
+      error => {
+        console.log(error)
       }
    );
   }
