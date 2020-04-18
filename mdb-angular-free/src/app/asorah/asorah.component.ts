@@ -13,7 +13,7 @@ import { Response } from "selenium-webdriver/http";
 export class AsorahComponent implements OnInit {
 
   categories_data: Categories;
-  post_data = Posts;
+  post_data = [];
 
   constructor(
     public apiService: Apiservice,
@@ -24,6 +24,7 @@ export class AsorahComponent implements OnInit {
   ngOnInit(): void {
     this.get_child_categories();
     this.get_post()
+    console.log('post data:', this.post_data);
   }
 
   get_child_categories() {
@@ -47,14 +48,11 @@ export class AsorahComponent implements OnInit {
             this.apiService.get_post_in_list_categories(term_id).subscribe(
               response => {
                 console.log('response is::: ', response);
-                let post_custom = new Posts();
-                post_custom.ID = response.ID;
-                post_custom.post_title = response.post_title;
-                post_custom.guid = response.guid;
-                this.post_data.apply(post_custom);
+                this.post_data.push(response);
               },
             );
           }
+
         }
       },
       error => {

@@ -13,8 +13,8 @@ import { Posts } from "../Models/posts";
 
 export class Apiservice {
 
-  base_path = 'http://127.0.0.1:8000/api/';
-  // base_path = 'https://api.alshia.inaseri.ir/api/';
+  // base_path = 'http://127.0.0.1:8000/api/';
+  base_path = 'https://api.alshia.inaseri.ir/api/';
   term_id: number;
 
   constructor(private http: HttpClient) { }
