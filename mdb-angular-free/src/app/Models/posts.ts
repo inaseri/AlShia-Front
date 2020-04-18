@@ -3,5 +3,5 @@ export class Posts {
   post_title: string;
   guid: string;
   post_type: string;
-  pk: number;
+  ID: number;
 }

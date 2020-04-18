@@ -13,8 +13,8 @@ import { Posts } from "../Models/posts";
 
 export class Apiservice {
 
-  /*base_path = 'http://127.0.0.1:8000/api/'*/
-  base_path = 'https://api.alshia.inaseri.ir/api/';
+  base_path = 'http://127.0.0.1:8000/api/';
+  // base_path = 'https://api.alshia.inaseri.ir/api/';
   term_id: number;
 
   constructor(private http: HttpClient) { }
@@ -62,9 +62,10 @@ export class Apiservice {
       );
   }
 
-  get_post_in_child_categories(term_id): Observable<Posts> {
-      return this.http
-      .get<Posts>(this.base_path + 'posts/' + term_id + '/', this.httpOptions)
+
+  get_post_in_list_categories(term_taxonomy_id): Observable<Posts> {
+    return this.http
+      .get<Posts>(this.base_path + 'post_list_category/' + term_taxonomy_id + '/', this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
